@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Bookmarker</title>
+        <meta name="description" content="Bookmarker created by HTML, CSS, and java script">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.jsdeliver.net/npm/sweetalert2@10"></script>
+        <!-- Fontawesome CSS File -->
+        <link rel="stylesheet" href="fontawesome/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        
+        <!-- Bootstrap CSS File -->
+        <link rel="stylesheet" href="CSS/bootstrap.min.css">
+        <!-- Main CSS File -->
+        <link rel="stylesheet" href="CSS/style.css">
+    </head>
+    <body>
+        <!-------------------- Loading --------------------->
+        <div class="top-0 start-0 bottom-0 end-0" id="reload">
+            <span class="loading"></span>
+        </div>
+
+
+        <section class="container main">
+            <!----------------------- Alert -------------------------->
+            <div class="home-layer p-0 bg-black opacity-75 h-100 position-absolute d-none" id="layer"></div>
+            <div class="alert-box text-black d-none" id="boxAlert">
+                <div class="d-flex justify-content-between p-3">
+                <p class="fs-5 fw-bold text-danger">
+                    Site Name or URL is not valid, Please follow the rules below :
+                </p>
+                <button class="btn border-0" id="closeBtn" onclick="exit()">
+                    <i class="fa-solid fa-xmark fa-2x text-danger"></i>
+                </button>
+                </div>
+                <div class="p-3 w-75 d-flex justify-content-between w-100">
+                <span>
+                    <p class="fw-bold">
+                        <i class="fa-solid fa-asterisk text-danger rounded"></i>
+                        Site name must contain at least 3 characters .
+                    </p>
+                    <p class="pt-3 fw-bold">
+                        <i class="fa-solid fa-asterisk text-danger rounded"></i>
+                        Site URL must be a valid one .
+                    </p>
+                </span>
+                <span class="w-75">
+                    <img src="images/sad emoji.PNG" alt="sad emoji" class="alert-img"/>
+                </span>
+                </div>
+            </div>
+
+            <!--------------------------------- Design ----------------------------->
+            <h1 class="text-capitalize text-center py-5">bookmarker</h1>
+            
+            <div class="clear">  </div>
+
+            <div class="text-center py-4">
+
+                <h2 class="text-capitalize text-center py-5">
+                    <i class="fa fa-regular fa-bookmark"></i>
+                    Bookmark your favorite sites
+                    <i class="fa fa-regular fa-bookmark"></i>
+                </h2>
+
+            </div>
+           
+            <div class="part-of-main w-100 d-flex flex-column justify-content-center">
+                <label for="siteNameInput" class="text-capitalize font-monospace mx-2 my-2">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    site name
+                </label>
+                <input type="text" id="siteNameInput" class="form-control" oninput="validateSiteName()" placeholder="Enter your website name">
+                <p class="alert-name fw-bold d-none" id="alertName">
+                    Please enter at least three characters ( only characters and
+                    numbers )
+                </p>
+            </div>
+            
+
+            <div class="part-of-main w-100 d-flex flex-column justify-content-center">
+                <label for="siteUrlInput" class="text-capitalize font-monospace mx-2 my-2">
+                    <i class="fa-solid fa-paperclip"></i>
+                    site <span class="text-uppercase">url</span>
+                </label>
+                <input type="text" id="siteUrlInput" class="form-control" oninput="validateSiteURL()" placeholder="Enter your website link">
+                <p class="alert-name fw-bold d-none" id="alertUrl">
+                    Please enter right URL
+                </p>
+            </div>
+
+           <div class="search-container d-flex">
+            <button type="submit" id="submitButton" class="btn btn-submit my-3 text-capitalize" onclick="addSiteInfo()">submit</button>
+            <button class="updateBtn btn btn-outline-danger my-3 text-capitalize  d-none" id="updateBtn"onclick="doneUpdate()">Update</button>
+
+
+            <!---------------- Search ------------------>
+            <div class="search col-md-6 offset-md-5">
+                <label class="fw-bold px-3">Search: </label>
+                <input
+                  oninput="searchWebsite()"
+                  id="searchInput"
+                  class="form-control my-3"
+                  placeholder=" Search By Name"
+                  type="text"
+                />
+            </div>
+           </div>
+  
+            
+            <div class="clear">  </div>
+
+              <div class="d-flex justify-content-end">
+                <button
+                  class="btn btn-primary d-none mx-3 my-3"
+                  onclick="undoDelete()"
+                  id="deleteBtn"
+                >
+                  Undo <i class="fa-solid fa-rotate-left"></i>
+                </button>
+              </div>
+
+
+              <!------------------ Table --------------------->
+            <table class="MY-Table bg-transparent  my-3 text-center">
+                <thead>
+                    <th class="text-capitalize">index</th>
+                    <th class="text-capitalize">website name</th>
+                    <th class="text-capitalize">update</th>
+                    <th class="text-capitalize">visit</th>
+                    <th class="text-capitalize">delete</th>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </section>
+        <!-- Bootstrap JS File -->
+        <script src="JS/bootstrap.bundle.min.js"></script>
+        <!-- JS Main File -->
+        <script src="JS/main.js"></script>
+    </body>
+</html>
