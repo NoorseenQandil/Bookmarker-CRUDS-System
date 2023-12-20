@@ -131,7 +131,7 @@ Bookmarker is a CRUDS System to save your favourite links by adding its name and
         document.getElementById("layer").classList.remove("d-none");     
         document.getElementById("boxAlert").classList.remove("d-none");
   }
-}
+  }
   ```
 
 * Display
@@ -162,7 +162,7 @@ Bookmarker is a CRUDS System to save your favourite links by adding its name and
         `
     }
     document.getElementById('tbody').innerHTML = item;
-}
+  }
   ```
 
 * Clear
@@ -172,7 +172,7 @@ Bookmarker is a CRUDS System to save your favourite links by adding its name and
     siteUrlInput.value = " ";
     siteNameInput.classList.remove("is-valid");
     siteUrlInput.classList.remove("is-valid");
-}
+  }
   ```
 
 * Update
@@ -187,27 +187,27 @@ Bookmarker is a CRUDS System to save your favourite links by adding its name and
     updateBtn.classList.remove("d-none");  
     addBtn.classList.add("d-none");        
     deletbtn.classList.add("disabled");    
-}
-function doneUpdate(){
-        if (validateSiteName() === true && validateSiteURL() === true) { 
-            var siteData = {                                             
-                name: siteNameInput.value, 
-                url: siteUrlInput.value
-            };
-  
-            sitesInfo.splice(indexUpdate, 1, siteData);                    
-            localStorage.setItem("sites", JSON.stringify(sitesInfo));     
-  
-            displayData();                                             
-            updateBtn.classList.add("d-none");                       
-            addBtn.classList.remove("d-none");                      
-            clearInputs();                                               
-    }
-        else {
-              document.getElementById("layer").classList.remove("d-none");                 
-              document.getElementById("boxAlert").classList.remove("d-none");              
-        }
-}
+  }
+  function doneUpdate(){
+          if (validateSiteName() === true && validateSiteURL() === true) { 
+              var siteData = {                                             
+                  name: siteNameInput.value, 
+                  url: siteUrlInput.value
+              };
+    
+              sitesInfo.splice(indexUpdate, 1, siteData);                    
+              localStorage.setItem("sites", JSON.stringify(sitesInfo));     
+    
+              displayData();                                             
+              updateBtn.classList.add("d-none");                       
+              addBtn.classList.remove("d-none");                      
+              clearInputs();                                               
+      }
+          else {
+                document.getElementById("layer").classList.remove("d-none");                 
+                document.getElementById("boxAlert").classList.remove("d-none");              
+          }
+  }
   ```
 
 * Delete
@@ -218,7 +218,7 @@ function doneUpdate(){
     displayData();
     deleteBtn.classList.remove("d-none");
     return deletedItem;
-}
+  }
   ```
 
 * Undo
@@ -229,7 +229,7 @@ function doneUpdate(){
     localStorage.setItem("sites", JSON.stringify(sitesInfo));   
     displayData();                                             
     deleteBtn.classList.add("d-none");                      
-}
+  }
   ```
 
 * Search
@@ -248,23 +248,23 @@ function doneUpdate(){
                 <button class="py-1 px-3 btn btn-outline-warning text-capitalize" onclick="sitUpdates(${i})">
                 <i class="fa-solid fa-pen"></i> update
                 </button>
-        </td>
-        <td>
-                <button class="py-1 px-3 btn btn-outline-success text-capitalize" onclick="visitSite()">
-                <i class="fa-regular fa-eye"></i><a href="${sitesInfo[i].url}" target="_blank" class="text-success"> visit
-                </button>
-        </td>
-        <td>
-                <button id="delete${i}" class="py-1 px-3 btn btn-outline-danger text-capitalize" onclick="deleteData(${i})">
-                <i class="fa-solid fa-trash"></i> delete
-                </button>
-        </td>
-        </tr>
-        `
-    }
-}
-    document.getElementById('tbody').innerHTML = item;
-}
+          </td>
+          <td>
+                  <button class="py-1 px-3 btn btn-outline-success text-capitalize" onclick="visitSite()">
+                  <i class="fa-regular fa-eye"></i><a href="${sitesInfo[i].url}" target="_blank" class="text-success"> visit
+                  </button>
+          </td>
+          <td>
+                  <button id="delete${i}" class="py-1 px-3 btn btn-outline-danger text-capitalize" onclick="deleteData(${i})">
+                  <i class="fa-solid fa-trash"></i> delete
+                  </button>
+          </td>
+          </tr>
+          `
+      }
+  }
+      document.getElementById('tbody').innerHTML = item;
+  }
   ```
 
 * Exit the alert
@@ -272,7 +272,7 @@ function doneUpdate(){
   function exit() {
     document.getElementById("layer").classList.add("d-none");         
     document.getElementById("boxAlert").classList.add("d-none");    
-}
+  }
   ```
 
 ## Live Demo
