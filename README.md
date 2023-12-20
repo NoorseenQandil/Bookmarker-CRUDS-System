@@ -70,6 +70,7 @@ Bookmarker is a CRUDS System to save your favourite links by adding its name and
 
 ## Getting Started
 1- Clone or download this repository to your local machine.
+
 2- Open the index.html file in a web browser.
 
 ## Java script Functions
